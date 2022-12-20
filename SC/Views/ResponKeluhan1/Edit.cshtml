@@ -1,27 +1,26 @@
 ﻿@model SC.Models.ResponKeluhan
 
 @{
-    ViewData["Title"] = "Create";
-
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Create</h1>
+<h1>Edit</h1>
 
 <h4>ResponKeluhan</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-           
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Tanggal" class="control-label"></label>
-                <input asp-for="Tanggal" type="date" class="form-control" />
+                <input asp-for="Tanggal" class="form-control" />
                 <span asp-validation-for="Tanggal" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="KeluhanId" class="control-label"></label>
-                <input asp-for="KeluhanId" class="form-control" asp-items="ViewBag.KeluhanId" />
+                <select asp-for="KeluhanId" class="form-control" asp-items="ViewBag.KeluhanId"></select>
                 <span asp-validation-for="KeluhanId" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -34,18 +33,8 @@
                 <input asp-for="Respon" class="form-control" />
                 <span asp-validation-for="Respon" class="text-danger"></span>
             </div>
-            @*<div class="form-group">
-                <label asp-for="StaffId" class="control-label"></label>
-                <input asp-for="StaffId" class="form-control" />
-                <span asp-validation-for="StaffId" class="text-danger"></span>
-            </div>
             <div class="form-group">
-                <label asp-for="StaffName" class="control-label"></label>
-                <input asp-for="StaffName" class="form-control" />
-                <span asp-validation-for="StaffName" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -55,6 +44,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

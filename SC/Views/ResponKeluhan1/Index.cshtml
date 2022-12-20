@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "_LayoutMhs";
+    Layout = "_LayoutAdmin";
 }
 
 <h1>Respon</h1>
@@ -10,31 +10,25 @@
 <p>
     <a asp-action="Create" class="btn btn-primary">Create</a>
 </p>
-<table class="table" id="ResponTable">
+<table class="table" id="TableRespon1">
     <thead>
         <tr>
             <th>
-                ID
+                @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                TANGGAL
+                @Html.DisplayNameFor(model => model.Tanggal)
             </th>
             <th>
-               KELUHANID
+                @Html.DisplayNameFor(model => model.Keluhan)
             </th>
             <th>
-               KELUHAN
+                @Html.DisplayNameFor(model => model.KeluhanMhs)
             </th>
             <th>
-               RESPON
+                @Html.DisplayNameFor(model => model.Respon)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.StaffId)
-            </th>*@
-            @*<th>
-                @Html.DisplayNameFor(model => model.StaffName)
-            </th>*@
-            <th>Action</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -47,7 +41,7 @@
                 @Html.DisplayFor(modelItem => item.Tanggal)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.KeluhanId)
+                @Html.DisplayFor(modelItem => item.Keluhan.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.KeluhanMhs)
@@ -55,16 +49,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Respon)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.StaffId)
-            </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StaffName)
-            </td>*@
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
 
-                @Html.ActionLink("Remove", "Remove", new { id = item.Id }, new { @class = "btn btn-danger" })
+                <a asp-action="Remove"  asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

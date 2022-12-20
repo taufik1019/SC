@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace SC.Controllers
 {
-    public class KeluhanController1 : Controller
+    public class Keluhan1Controller : Controller
     {
         KeluhanRepository KeluhanRepository;
         ResponKeluhanRepository ResponKeluhanRepository;
 
-        public KeluhanController1(KeluhanRepository keluhanRepository, ResponKeluhanRepository ResponKeluhanRepository)
+        public Keluhan1Controller(KeluhanRepository keluhanRepository, ResponKeluhanRepository ResponKeluhanRepository)
         {
             this.KeluhanRepository = keluhanRepository;
             this.ResponKeluhanRepository = ResponKeluhanRepository;

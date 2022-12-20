@@ -16,10 +16,14 @@
     <link rel="stylesheet" href="~/Adminlte/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" type="text/css" href="~/Adminlte/js/select.dataTables.min.css">
 
-    
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
-    
 
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <!-- End plugin css for this page -->
     <!-- inject:css -->
@@ -58,14 +62,7 @@
                         <i class="icon-bell mx-0"></i>
                         <span class="count"></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown"></div>
-                    <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                    <a class="dropdown-item preview-item"></a>
-                    <div class="preview-thumbnail">
-                        <div class="preview-icon bg-success">
-                            <i class="ti-info-alt mx-0"></i>
-                        </div>
-                    </div>
+                   
 
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
@@ -73,12 +70,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                         <a class="dropdown-item">
-                            <i class="ti-settings text-primary"></i>
-                            Settings
-                        </a>
-                        <a class="dropdown-item">
-                            <i class="ti-power-off text-primary"></i>
-                            Logout
+                            <i class="ti-power-off text-primary" asp-action="Login" asp-controller="Account">Logout</i>
                         </a>
                     </div>
                 </li>
@@ -88,9 +80,9 @@
                     </a>
                 </li>
             </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            @*<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                 <span class="icon-menu"></span>
-            </button>
+            </button>*@
         </div>
     </nav>
     <!-- partial -->
@@ -128,10 +120,7 @@
                 <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
                     <div class="add-items d-flex px-3 mb-0">
                         <form class="form w-100">
-                            <div class="form-group d-flex">
-                                <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
-                                <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
-                            </div>
+                            
                         </form>
                     </div>
                     <div class="list-wrapper px-3">
@@ -223,8 +212,8 @@
                     </a>
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" asp-controller="Keluhan" asp-action="index">Keluhan</a></li>
-                            <li class="nav-item"> <a class="nav-link" asp-controller="ResponKeluhan" asp-action="index">Respon Keluhan</a></li>
+                            <li class="nav-item"> <a class="nav-link" asp-controller="Keluhan1" asp-action="index">Keluhan</a></li>
+                            <li class="nav-item"> <a class="nav-link" asp-controller="ResponKeluhan1" asp-action="index">Respon Keluhan</a></li>
                         </ul>
                     </div>
                 </li>
