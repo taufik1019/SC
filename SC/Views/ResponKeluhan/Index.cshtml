@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SC.Models.ResponKeluhan>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_LayoutAdmin";
+    Layout = "_LayoutMhs";
+}
+
+<h1>Respon</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create</a>
+</p>
+<table class="table" id="ResponTable">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                TANGGAL
+            </th>
+            <th>
+               KELUHANID
+            </th>
+            <th>
+               KELUHAN
+            </th>
+            <th>
+               RESPON
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.StaffId)
+            </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.StaffName)
+            </th>*@
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tanggal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeluhanId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KeluhanMhs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Respon)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.StaffId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffName)
+            </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+
+                @Html.ActionLink("Remove", "Remove", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

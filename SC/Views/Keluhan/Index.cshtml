@@ -1,0 +1,146 @@
+﻿@model IEnumerable<SC.Models.Keluhan>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_LayoutMhs";
+
+}
+
+<h1>Keluhan</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create</a>
+</p>
+<table class="table" id="KeluhanTable">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                NAMA
+            </th>
+            <th>
+                PRODI
+            </th>
+            <th>
+                TANGGAL
+            </th>
+            <th>
+                KELUHAN
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prodi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tanggal)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.KeluhanMhs)*@
+                    @{
+                        var keluhanmhs = item.KeluhanMhs.ToString().Substring(0, 5);
+                    }
+                    @keluhanmhs ...
+                </td>
+                <td>
+                    @{
+                        var iddetail = item.Id;
+                        var dataname = item.Name;
+                        var prodi = item.Prodi;
+                        var tglkeluhan = item.Tanggal;
+                        var keluhantext = item.KeluhanMhs;
+                        var jwbnkeluhan = ViewBag.respon.Getrespon(item.Id);
+                        var jbr = "";
+                        if(jwbnkeluhan != null)
+                        {
+                            jbr = jwbnkeluhan.Respon;
+                        } else
+                        { 
+                            jbr = "";
+                        }
+                    }
+                    <a href="#" data-jwb="@jbr" data-id="@iddetail" data-name="@dataname" data-prodi="@prodi" data-tglkeluhan="@tglkeluhan" data-keluhantxt="@keluhantext" data-bs-toggle="modal" data-bs-target="#modalDetailkeluhan" class="btn btn-primary detail-btn">detail</a>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+
+                    @Html.ActionLink("Remove", "Remove", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+
+
+        }
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalDetailkeluhan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Detail keluhan</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5 class="judul"> Informasi keluhan</h5>
+                <table class="table table-striped" width="100%">
+                    <tr>
+                        <td width="30%">nama</td>
+                        <td width="2%">:</td>
+                        <td width="56%" class="name-keluhan"></td>
+                    </tr>
+                    <tr>
+                        <td>prodi</td>
+                        <td>:</td>
+                        <td class="prodi-keluhan"></td>
+                    </tr>
+                    <tr>
+                        <td>tgl keluhan</td>
+                        <td>:</td>
+                        <td class="tgl-keluhan"></td>
+                    </tr>
+                    <tr>
+                        <td>keluhan</td>
+                        <td>:</td>
+                        <td class="txt-keluhan"></td>
+                    </tr>
+                    <tr>
+                        <td>jawaban</td>
+                        <td>:</td>
+                        <td class="jwb-keluhan"></td>
+                    </tr>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(".detail-btn").on('click', function () {
+        var namamhs = $(this).data("name");
+        var prodimhs = $(this).data("prodi");
+        var tglklhn = $(this).data("tglkeluhan");
+        var keluhantxt = $(this).data("keluhantxt");
+        var keluhanjwb = $(this).data("jwb");
+        $(".name-keluhan").html(namamhs);
+        $(".prodi-keluhan").html(prodimhs);
+        $(".tgl-keluhan").html(tglklhn);
+        $(".txt-keluhan").html(keluhantxt);
+        $(".jwb-keluhan").html(keluhanjwb);
+    });
+</script>
