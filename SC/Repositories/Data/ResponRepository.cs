@@ -8,60 +8,60 @@ using System.Threading.Tasks;
 
 namespace SC.Repositories.Data
 {
-    public class ResponKeluhanRepository
+    public class ResponRepository
     {
         MyContext myContext;
 
-        public ResponKeluhanRepository(MyContext myContext)
+        public ResponRepository(MyContext myContext)
         {
             this.myContext = myContext;
         }
 
-        public List<ResponKeluhan> Get()
+        public List<Respon> Get()
         {
-            var data = myContext.ResponKeluhans.Include(x => x.Keluhan).ToList();
+            var data = myContext.Respons.Include(x => x.Keluhan).ToList();
             return data;
         }
 
-        public ResponKeluhan Get(int id)
+        public Respon Get(int id)
         {
-            var data = myContext.ResponKeluhans
+            var data = myContext.Respons
                        .Include(x => x.Keluhan)
-                       .Where(x => x.Id.Equals(id))
+                       .Where(x => x.ResponId.Equals(id))
                        .FirstOrDefault();
             return data;
         }
 
-        public ResponKeluhan Getrespon(int id)
+        public Respon Getrespon(int id)
         {
-            var data = myContext.ResponKeluhans
+            var data = myContext.Respons
                        .Where(x => x.KeluhanId.Equals(id))
                        .FirstOrDefault();
             return data;
         }
 
-        public int Post(ResponKeluhan responKeluhan)
+        public int Post(Respon respon)
         {
-            myContext.ResponKeluhans.Add(responKeluhan);
+            myContext.Respons.Add(respon);
             var result = myContext.SaveChanges();
             if (result > 0)
                 return result;
             return 0;
         }
 
-        public int Put(int id, ResponKeluhan responKeluhan)
+        public int Put(int id, Respon respon)
         {
-            var data = myContext.ResponKeluhans.Find(id);
-            data.Respon = responKeluhan.Respon;
-            data.Tanggal = responKeluhan.Tanggal;
-            myContext.ResponKeluhans.Update(data);
+            var data = myContext.Respons.Find(id);
+            data.ResponKeluhan = respon.ResponKeluhan;
+            data.TanggalRespon = respon.TanggalRespon;
+            myContext.Respons.Update(data);
             var result = myContext.SaveChanges();
             return result;
         }
 
-        public int Remove(ResponKeluhan responKeluhan)
+        public int Remove(Respon respon)
         {
-            myContext.ResponKeluhans.Remove(responKeluhan);
+            myContext.Respons.Remove(respon);
             var result = myContext.SaveChanges();
             return result;
         }

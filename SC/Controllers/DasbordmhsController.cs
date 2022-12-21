@@ -13,13 +13,12 @@ namespace SC.Controllers
        
         public IActionResult Index()
         {
-            //string role = HttpContext.Session.GetString("Role");
-            //if(role.Equals("Mhs"))
+            string role = HttpContext.Session.GetString("Role");
+            if (role.Equals("Mahasiswa"))
             {
-                
                 return View();
             }
-            //return RedirectToAction("Unautorized", "ErrorPage");
+            return RedirectToAction("Unautorized", "ErrorPage");
         }
 
         public IActionResult Profil()

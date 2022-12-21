@@ -29,8 +29,7 @@ namespace SC
         {
             services.AddScoped<AccountRepository>();
             services.AddScoped<KeluhanRepository>();
-            services.AddScoped<ResponKeluhanRepository>();
-            
+            services.AddScoped<ResponRepository>();
 
 
             services.AddSession(options =>
@@ -43,7 +42,6 @@ namespace SC
             //services.AddDefaultIdentity<MyContext>(Options =>
             //Options.Login.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStore<MyContext>();
-
 
             services.AddDbContext<MyContext>(option =>
             option.UseSqlServer(Configuration.GetConnectionString("MyConnection")));

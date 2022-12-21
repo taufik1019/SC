@@ -35,24 +35,20 @@ namespace SC.Controllers
                 HttpContext.Session.SetInt32("id", data.RoleId);
                 if (data.RoleId == 1)
                 {
-                   return RedirectToAction("Index", "Home");
-                } else
-                if(data.RoleId == 2)
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                if (data.RoleId == 2)
                 {
                     return RedirectToAction("Index", "Dasbordmhs");
                 }
-                
             }
             return View();
-           
-
         }
-
-
 
         public IActionResult Register()
         {
-           return View();
+            return View();
         }
 
 
@@ -61,12 +57,12 @@ namespace SC.Controllers
         {
             var data = accountRepository.Register(register);
             if (data > 0)
-           {
+            {
                 return RedirectToAction("Login", "Account");
             }
             return View();
         }
 
-      
+
     }
 }

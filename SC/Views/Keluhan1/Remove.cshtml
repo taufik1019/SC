@@ -1,4 +1,5 @@
-﻿@model SC.Models.ResponKeluhan
+﻿@model SC.Models.Respon
+//kok modelnya respon ya?
 
 @{
     ViewData["Title"] = "Remove";
@@ -11,34 +12,40 @@
     <h4>ResponKeluhan</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tanggal)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Keluhan.TanggalKeluhan)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tanggal)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Keluhan.TanggalKeluhan)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Keluhan)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.KeluhanId)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Keluhan.Id)
-        </dd class>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.KeluhanMhs)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.KeluhanMhs)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.KeluhanId)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Respon)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Keluhan.KeluhanMahasiswa)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Respon)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Keluhan.KeluhanMahasiswa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ResponKeluhan)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ResponKeluhan)
         </dd>
     </dl>
     
     <form asp-action="Remove">
-        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="KeluhanId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

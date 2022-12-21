@@ -10,10 +10,16 @@ namespace SC.Models
     public class Keluhan
     {
         [Key]
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Prodi { get; set; }
-        public DateTime Tanggal { get; set; }
-        public string KeluhanMhs { get; set; }
+        public int KeluhanId { get; set; }
+
+        public DateTime TanggalKeluhan { get; set; }
+
+        public string KeluhanMahasiswa { get; set; }
+        
+        public User User { get; set; }
+
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+
     }
 }

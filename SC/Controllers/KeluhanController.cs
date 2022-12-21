@@ -12,19 +12,19 @@ namespace SC.Controllers
     public class KeluhanController : Controller
     {
         KeluhanRepository KeluhanRepository;
-        ResponKeluhanRepository ResponKeluhanRepository;
+        ResponRepository ResponRepository;
 
-        public KeluhanController(KeluhanRepository keluhanRepository, ResponKeluhanRepository ResponKeluhanRepository)
+        public KeluhanController(KeluhanRepository keluhanRepository, ResponRepository responRepository)
         {
             this.KeluhanRepository = keluhanRepository;
-            this.ResponKeluhanRepository = ResponKeluhanRepository;
+            this.ResponRepository = responRepository;
         }
 
         // GET ALL
         public IActionResult Index()
         {
             var data = KeluhanRepository.Get();
-            ViewBag.respon = ResponKeluhanRepository;
+            ViewBag.respon = ResponRepository;
             return View(data);
         }
 

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SC.Models.ResponKeluhan>
+﻿@model IEnumerable<SC.Models.Respon>
 
 @{
     ViewData["Title"] = "Index";
@@ -29,11 +29,11 @@
                RESPON
             </th>
             @*<th>
-                @Html.DisplayNameFor(model => model.StaffId)
+                @Html.DisplayNameFor(model => model.User.UserId)
             </th>*@
-            @*<th>
-                @Html.DisplayNameFor(model => model.StaffName)
-            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.User.UserName)
+            </th>
             <th>Action</th>
         </tr>
     </thead>
@@ -41,30 +41,30 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.ResponId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Tanggal)
+                @Html.DisplayFor(modelItem => item.Keluhan.TanggalKeluhan)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.KeluhanId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.KeluhanMhs)
+                @Html.DisplayFor(modelItem => item.Keluhan.KeluhanMahasiswa)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Respon)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.StaffId)
+                @Html.DisplayFor(modelItem => item.ResponKeluhan)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StaffName)
-            </td>*@
+                @Html.DisplayFor(modelItem => item.User.UserId)
+            </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ResponId }, new { @class = "btn btn-primary" })
 
-                @Html.ActionLink("Remove", "Remove", new { id = item.Id }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Remove", "Remove", new { id = item.ResponId }, new { @class = "btn btn-danger" })
             </td>
         </tr>
 }

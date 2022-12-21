@@ -40,8 +40,8 @@ namespace SC.Repositories.Data
         public int Put(int id, Keluhan keluhan)
         {
             var data = myContext.Keluhans.Find(id);
-            data.KeluhanMhs = keluhan.KeluhanMhs;
-            data.Tanggal = keluhan.Tanggal;
+            data.KeluhanMahasiswa = keluhan.KeluhanMahasiswa;
+            data.TanggalKeluhan = keluhan.TanggalKeluhan;
             myContext.Keluhans.Update(data);
             var result = myContext.SaveChanges();
             return result;

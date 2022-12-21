@@ -11,18 +11,19 @@ namespace SC.Controllers
     public class Keluhan1Controller : Controller
     {
         KeluhanRepository KeluhanRepository;
-        ResponKeluhanRepository ResponKeluhanRepository;
+        ResponRepository ResponRepository;
 
-        public Keluhan1Controller(KeluhanRepository keluhanRepository, ResponKeluhanRepository ResponKeluhanRepository)
+
+        public Keluhan1Controller(KeluhanRepository keluhanRepository, ResponRepository responRepository)
         {
             this.KeluhanRepository = keluhanRepository;
-            this.ResponKeluhanRepository = ResponKeluhanRepository;
+            this.ResponRepository = responRepository;
         }
         // GET ALL
         public IActionResult Index()
         {
             var data = KeluhanRepository.Get();
-            ViewBag.respon = ResponKeluhanRepository;
+            ViewBag.respon = ResponRepository;
             return View(data);
         }
 
@@ -35,7 +36,7 @@ namespace SC.Controllers
 
         // CREATE 
         // GET
-        //[Authorize("Mhs")]
+        //[Authorize("Mahasiswa")]
         public IActionResult Create()
         {
             return View();
@@ -94,6 +95,6 @@ namespace SC.Controllers
                 return RedirectToAction("Index");
             return View();
         }
-    
-}
+
+    }
 }

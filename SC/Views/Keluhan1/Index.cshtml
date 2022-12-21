@@ -8,25 +8,25 @@
 <h1>Keluhan</h1>
 
 <p>
-    @*<a asp-action="Create" class="btn btn-primary">Create</a>*@
+    <a asp-action="Create" class="btn btn-primary">Create</a>
 </p>
 <table class="table" id="TableKeluhan1">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                @Html.DisplayNameFor(model => model.KeluhanId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.User.UserName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Prodi)
+                @Html.DisplayNameFor(model => model.User.ProfileMahasiswa.Prodi)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tanggal)
+                @Html.DisplayNameFor(model => model.TanggalKeluhan)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.KeluhanMhs)
+                @Html.DisplayNameFor(model => model.KeluhanMahasiswa)
             </th>
             <th></th>
         </tr>
@@ -35,24 +35,24 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.KeluhanId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.User.UserName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Prodi)
+                @Html.DisplayFor(modelItem => item.User.ProfileMahasiswa.Prodi)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Tanggal)
+                @Html.DisplayFor(modelItem => item.TanggalKeluhan)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.KeluhanMhs)
+                @Html.DisplayFor(modelItem => item.KeluhanMahasiswa)
             </td>
             <td>
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "fa fa-edit" }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.KeluhanId }, new { @class = "fa fa-edit" }) |
 
-            @Html.ActionLink("Remove", "Remove", new { id = item.Id }, new { @class = "fa fa-trush" })*@
+            @Html.ActionLink("Remove", "Remove", new { id = item.KeluhanId }, new { @class = "fa fa-trush" })
             </td>
         </tr>
 }

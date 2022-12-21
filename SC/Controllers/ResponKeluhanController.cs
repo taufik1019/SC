@@ -11,26 +11,26 @@ namespace SC.Controllers
 {
     public class ResponKeluhanController : Controller
     {
-         ResponKeluhanRepository ResponKeluhanRepository;
+        ResponRepository ResponRepository;
 
-        public ResponKeluhanController(ResponKeluhanRepository ResponKeluhanRepository)
+        public ResponKeluhanController(ResponRepository responRepository)
         {
-            this.ResponKeluhanRepository = ResponKeluhanRepository;
+            this.ResponRepository = responRepository;
         }
 
         public IActionResult Index()
         {
-            
-            var data = ResponKeluhanRepository.Get();
+
+            var data = ResponRepository.Get();
             return View(data);
-            
+
         }
 
         // GET BY ID
         //GET
         public IActionResult Details(int id)
         {
-            var data = ResponKeluhanRepository.Get(id);
+            var data = ResponRepository.Get(id);
             return View(data);
         }
 
@@ -43,12 +43,12 @@ namespace SC.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ResponKeluhan responKeluhan)
+        public IActionResult Create(Respon respon)
         {
             if (ModelState.IsValid)
             {
 
-                var result = ResponKeluhanRepository.Post(responKeluhan);
+                var result = ResponRepository.Post(respon);
                 if (result > 0)
                     return RedirectToAction("Index");
             }
@@ -66,11 +66,11 @@ namespace SC.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ResponKeluhan responKeluhan)
+        public ActionResult Edit(int id, Respon respon)
         {
             if (ModelState.IsValid)
             {
-                var result = ResponKeluhanRepository.Put(id, responKeluhan);
+                var result = ResponRepository.Put(id, respon);
                 if (result > 0)
                     return RedirectToAction("Index");
             }
@@ -81,15 +81,15 @@ namespace SC.Controllers
         // GET
         public ActionResult Remove(int id)
         {
-            var data = ResponKeluhanRepository.Get(id);
+            var data = ResponRepository.Get(id);
             return View(data);
         }
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Remove(ResponKeluhan responKeluhan)
+        public IActionResult Remove(Respon respon)
         {
-            var result = ResponKeluhanRepository.Remove(responKeluhan);
+            var result = ResponRepository.Remove(respon);
             if (result > 0)
                 return RedirectToAction("Index");
             return View();

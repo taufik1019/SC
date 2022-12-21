@@ -1,4 +1,4 @@
-﻿@model SC.Models.ResponKeluhan
+﻿@model SC.Models.Respon
 
 @{
     ViewData["Title"] = "Edit";
@@ -13,15 +13,15 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Tanggal" class="control-label"></label>
-                <input asp-for="Tanggal" class="form-control" />
-                <span asp-validation-for="Tanggal" class="text-danger"></span>
+                <label asp-for="Keluhan.TanggalKeluhan" class="control-label"></label>
+                <input asp-for="Keluhan.TanggalKeluhan" class="form-control" />
+                <span asp-validation-for="Keluhan.TanggalKeluhan" class="text-danger"></span>
             </div>
             
             <div class="form-group">
-                <label asp-for="Respon" class="control-label"></label>
-                <input asp-for="Respon" class="form-control" />
-                <span asp-validation-for="Respon" class="text-danger"></span>
+                <label asp-for="ResponKeluhan" class="control-label"></label>
+                <input asp-for="ResponKeluhan" class="form-control" />
+                <span asp-validation-for="ResponKeluhan" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

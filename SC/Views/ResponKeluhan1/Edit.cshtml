@@ -1,4 +1,4 @@
-﻿@model SC.Models.ResponKeluhan
+﻿@model SC.Models.Respon
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,11 +12,11 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ResponId" />
             <div class="form-group">
-                <label asp-for="Tanggal" class="control-label"></label>
-                <input asp-for="Tanggal" class="form-control" />
-                <span asp-validation-for="Tanggal" class="text-danger"></span>
+                <label asp-for="Keluhan.TanggalKeluhan" class="control-label"></label>
+                <input asp-for="Keluhan.TanggalKeluhan" class="form-control" />
+                <span asp-validation-for="Keluhan.TanggalKeluhan" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="KeluhanId" class="control-label"></label>
@@ -24,14 +24,14 @@
                 <span asp-validation-for="KeluhanId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="KeluhanMhs" class="control-label"></label>
-                <input asp-for="KeluhanMhs" class="form-control" />
-                <span asp-validation-for="KeluhanMhs" class="text-danger"></span>
+                <label asp-for="Keluhan.KeluhanMahasiswa" class="control-label"></label>
+                <input asp-for="Keluhan.KeluhanMahasiswa" class="form-control" />
+                <span asp-validation-for="Keluhan.KeluhanMahasiswa" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Respon" class="control-label"></label>
-                <input asp-for="Respon" class="form-control" />
-                <span asp-validation-for="Respon" class="text-danger"></span>
+                <label asp-for="ResponKeluhan" class="control-label"></label>
+                <input asp-for="ResponKeluhan" class="form-control" />
+                <span asp-validation-for="ResponKeluhan" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

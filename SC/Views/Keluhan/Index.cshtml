@@ -37,45 +37,46 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
+                    @Html.DisplayFor(modelItem => item.KeluhanId)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.DisplayFor(modelItem => item.User.UserName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Prodi)
+                    @Html.DisplayFor(modelItem => item.User.ProfileMahasiswa.Prodi)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Tanggal)
+                    @Html.DisplayFor(modelItem => item.TanggalKeluhan)
                 </td>
                 <td>
-                    @*@Html.DisplayFor(modelItem => item.KeluhanMhs)*@
+                    @Html.DisplayFor(modelItem => item.KeluhanMahasiswa)
                     @{
-                        var keluhanmhs = item.KeluhanMhs.ToString().Substring(0, 5);
+                        var keluhanmahasiswa = item.KeluhanMahasiswa.ToString().Substring(0, 5);
                     }
-                    @keluhanmhs ...
+                    @keluhanmahasiswa ...
                 </td>
                 <td>
                     @{
-                        var iddetail = item.Id;
-                        var dataname = item.Name;
-                        var prodi = item.Prodi;
-                        var tglkeluhan = item.Tanggal;
-                        var keluhantext = item.KeluhanMhs;
-                        var jwbnkeluhan = ViewBag.respon.Getrespon(item.Id);
+                        var iddetail = item.KeluhanId;
+                        var dataname = item.User.UserName;
+                        var prodi = item.User.ProfileMahasiswa.Prodi;
+                        var tglkeluhan = item.TanggalKeluhan;
+                        var keluhantext = item.KeluhanMahasiswa;
+                        var jwbnkeluhan = ViewBag.respon.Getrespon(item.KeluhanId);
                         var jbr = "";
-                        if(jwbnkeluhan != null)
+                        if (jwbnkeluhan != null)
                         {
                             jbr = jwbnkeluhan.Respon;
-                        } else
-                        { 
+                        }
+                        else
+                        {
                             jbr = "";
                         }
                     }
                     <a href="#" data-jwb="@jbr" data-id="@iddetail" data-name="@dataname" data-prodi="@prodi" data-tglkeluhan="@tglkeluhan" data-keluhantxt="@keluhantext" data-bs-toggle="modal" data-bs-target="#modalDetailkeluhan" class="btn btn-primary detail-btn">detail</a>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.KeluhanId }, new { @class = "btn btn-primary" }) |
 
-                    @Html.ActionLink("Remove", "Remove", new { id = item.Id }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Remove", "Remove", new { id = item.KeluhanId }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
 

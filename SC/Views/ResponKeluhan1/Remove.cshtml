@@ -1,4 +1,4 @@
-﻿@model SC.Models.ResponKeluhan
+﻿@model SC.Models.Respon
 
 @{
     ViewData["Title"] = "Remove";
@@ -12,33 +12,33 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tanggal)
+            @Html.DisplayNameFor(model => model.Keluhan.TanggalKeluhan)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tanggal)
+            @Html.DisplayFor(model => model.Keluhan.TanggalKeluhan)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Keluhan)
+            @Html.DisplayNameFor(model => model.KeluhanId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Keluhan.Id)
+            @Html.DisplayFor(model => model.KeluhanId)
         </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.KeluhanMhs)
+            @Html.DisplayNameFor(model => model.Keluhan.KeluhanMahasiswa)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.KeluhanMhs)
+            @Html.DisplayFor(model => model.Keluhan.KeluhanMahasiswa)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Respon)
+            @Html.DisplayNameFor(model => model.ResponKeluhan)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Respon)
+            @Html.DisplayFor(model => model.ResponKeluhan)
         </dd>
     </dl>
     
     <form asp-action="Remove">
-        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="ResponId" />
         <input type="submit" value="Remove" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

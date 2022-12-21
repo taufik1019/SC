@@ -7,28 +7,15 @@ using System.Threading.Tasks;
 
 namespace SC.Models
 {
-    public class User
+    public class UserRole
     {
         [Key]
-
+        public int Id { get; set; }
+        public User User { get; set; }
+        [ForeignKey("User")]
         public int UserId { get; set; }
-
-        public string UserName { get; set; }
-
-        public string Email { get; set; }
-
-        public string Password { get; set; }
-
         public Role Role { get; set; }
-
         [ForeignKey("Role")]
         public int RoleId { get; set; }
-
-        public ProfileMahasiswa ProfileMahasiswa { get; set; }
-
-        [ForeignKey("ProfileMahasiswa")]
-        public int? ProfileMahasiswaId { get; set; }
-
-
     }
 }
